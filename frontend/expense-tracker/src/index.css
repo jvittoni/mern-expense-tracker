@@ -6,9 +6,8 @@
   :root {
     --font-display: "Poppins", "sans-serif";
     --breakpoint-3xl: 1920px;
-    --color-primary: #875cf5;
+    --color-primary: #1729c4;
   }
-
 
   html {
     font-family: var(--font-display);
@@ -18,4 +17,10 @@
     background-color: #fcfbfc;
     overflow-x: hidden;
   }
+
 }
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
