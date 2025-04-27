@@ -23,6 +23,6 @@ export const API_PATHS = {
         DOWNLOAD_EXPENSE: `/pai/v1/expense/downloadexpense`
     },
     IMAGE: {
-        UPLAOD_IMAE: "/api/v1/auth/upload-image"
+        UPLAOD_IMAGE: "/api/v1/auth/upload-image"
     }
 };
