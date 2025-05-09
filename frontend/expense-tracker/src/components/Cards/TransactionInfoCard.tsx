@@ -26,7 +26,7 @@ const TransactionInfoCard = ({ title, icon, date, amount, type, hideDeleteBtn })
                             className='text-gray-400 hover:textred-500 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer'
                             onClick={onDelete}
                         >
-                            <LuTrash2 size={18} />
+                            <LuTrash2 size={18} />z
                         </button>
                     )} */}
                     <div className={`flex items-center gap-2 px-3 py-1.5 rounded-md ${getAmountStyles()}`}>
