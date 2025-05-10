@@ -11,6 +11,7 @@ import { addThousandsSeparator } from '../../utils/helper';
 import RecentTransactions from '../../components/Dashboard/RecentTransactions';
 import FinanceOverview from '../../components/Dashboard/FinanceOverview';
 import ExpenseTransactions from '../../components/Dashboard/ExpenseTransactions';
+import Last30DayExpenses from '../../components/Dashboard/Last30DayExpenses';
 
 const Home = () => {
   useUserAuth();
@@ -63,7 +64,7 @@ const Home = () => {
           <InfoCard
             icon={<LuHandCoins />}
             label="Total Expense"
-            value={`$${addThousandsSeparator(dashboardData?.totalExpenses || 0)}`}
+            value={`$${addThousandsSeparator(dashboardData?.totalExpense || 0)}`}
             color="bg-red-700"
           />
         </div>
@@ -82,6 +83,10 @@ const Home = () => {
           <ExpenseTransactions
             transactions={dashboardData?.last30DayExpenses?.transactions || []}
             onSeeMore={() => navigate("/expense")}
+          />
+
+          <Last30DayExpenses
+            data={dashboardData?.last30DayExpenses?.transactions || []}
           />
 
         </div>
