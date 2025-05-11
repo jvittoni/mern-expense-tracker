@@ -7,6 +7,7 @@ const CustomBarChart = ({ data }) => {
     // Function to alternate colors
     const getBarColor = (index) => {
         return index % 2 === 0 ? "#dc2626" : "#df8383";
+        // return entry.type === 'income' ? '#dc2626' : '#16a34a';
     };
 
     const CustomTooltip = ({ active, payload }) => {
