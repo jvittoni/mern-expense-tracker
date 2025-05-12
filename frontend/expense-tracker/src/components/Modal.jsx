@@ -5,6 +5,7 @@ const Modal = ({ children, isOpen, onClose, title }) => {
     // button dark:hover:bg-gray-600 dark:hover:text-white
     // div 3 dark:bg-gray-700
     // h3 dark:text-white
+    // div 4 dark:border-gray-600
 
     if (!isOpen) return null;
 
@@ -15,7 +16,7 @@ const Modal = ({ children, isOpen, onClose, title }) => {
                 <div className='relative bg-white rounded-lg shadow-sm '>
                     {/* Modal header */}
 
-                    <div className='flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200'>
+                    <div className='flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-200'>
                         <h3 className='text-lg font-medium text-gray-900 '>{title}</h3>
                         <button
                             type='button'
