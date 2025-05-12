@@ -1,6 +1,7 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell } from 'recharts';
 import CustomTooltip from './CustomTooltip';
+import { addThousandsSeparator } from '../../utils/helper';
 
 const CustomIncomeBarChart = ( { data }) => {
     // Function to alternate colors
@@ -17,7 +18,7 @@ const CustomIncomeBarChart = ( { data }) => {
                         {payload[0].payload.category}
                     </p>
                     <p className='text-sm text-gray-600'>
-                        Amount: <span className='text-sm font-medium text-gray-900'>{payload[0].payload.amount}</span>
+                        Amount: <span className='text-sm font-medium text-gray-900'>${addThousandsSeparator(payload[0].payload.amount)}</span>
                     </p>
                 </div>
             );
