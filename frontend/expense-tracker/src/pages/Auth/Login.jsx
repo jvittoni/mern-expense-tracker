@@ -12,6 +12,7 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const { updateUser } = useContext(UserContext);
 
@@ -32,6 +33,7 @@ const Login = () => {
         }
 
         setError("");
+        setLoading(true);
 
         // Login API Call
         try {
@@ -52,6 +54,8 @@ const Login = () => {
             } else {
                 setError("Something went wrong. Please try again.");
             }
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -82,7 +86,8 @@ const Login = () => {
                         />
 
                         {error && <p className='text-red-500 text-xs pb-2.5'>{error}</p>}
-                        <button type='submit' className='w-full text-sm font-medium text-white bg-blue-950 shadow-lg shadow-sky-600/5 p-[10px] rounded-md my-1 hover:bg-blue-950/85 cursor-pointer'>Login</button>
+                        {/* <button type='submit' className='w-full text-sm font-medium text-white bg-blue-950 shadow-lg shadow-sky-600/5 p-[10px] rounded-md my-1 hover:bg-blue-950/85 cursor-pointer'>Login</button> */}
+                        <button disabled={loading} type='submit' className='w-full text-sm font-medium text-white bg-blue-950 shadow-lg shadow-sky-600/5 p-[10px] rounded-md my-1 hover:bg-blue-950/85 disabled:opacity-80 cursor-pointer'>{loading ? 'Loading...' : 'Login'}</button>
 
                         <p className='text-[13px] text-slate-800 mt-3'>
                             Don't have an account? {" "}

@@ -16,10 +16,10 @@ const SignUp = () => {
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
 
-    const { updateUser } = useContext(UserContext); 
+    const { updateUser } = useContext(UserContext);
 
     const navigate = useNavigate();
 
@@ -43,6 +43,7 @@ const SignUp = () => {
         }
 
         setError("");
+        setLoading(true);
 
         // Signup API Call
         try {
@@ -73,6 +74,8 @@ const SignUp = () => {
             } else {
                 setError("Something went wrong. Please try again.");
             }
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -110,21 +113,17 @@ const SignUp = () => {
                             />
                         </div>
                         {error && <p className='text-red-500 text-xs pb-2.5'>{error}</p>}
-                        <button type='submit' className='w-full text-sm font-medium text-white bg-blue-950 shadow-lg shadow-sky-600/5 p-[10px] rounded-md my-1 hover:bg-blue-950/85 cursor-pointer'>Sign Up</button>
+                        {/* <button type='submit' className='w-full text-sm font-medium text-white bg-blue-950 shadow-lg shadow-sky-600/5 p-[10px] rounded-md my-1 hover:bg-blue-950/85 cursor-pointer'>Sign Up</button> */}
+                        <button disabled={loading} type='submit' className='w-full text-sm font-medium text-white bg-blue-950 shadow-lg shadow-sky-600/5 p-[10px] rounded-md my-1 hover:bg-blue-950/85 disabled:opacity-80 cursor-pointer'>{loading ? 'Loading...' : 'Sign Up'}</button>
 
                         <p className='text-[13px] text-slate-800 mt-3'>
                             Have an account? {" "}
                             <Link className='font-medium text-blue-600 hover:underline' to="/login">Sign In</Link>
                         </p>
-
                     </form>
-
 
                 </div>
             </div>
-
-
-
 
         </AuthLayout>
     )
